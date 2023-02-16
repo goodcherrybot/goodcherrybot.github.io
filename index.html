@@ -7,55 +7,6 @@
   <meta name="keywords" content="Dyanmics Fine Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cherrybot</title>
-
-
-  <script>
-    function updateSingleVideo() {
-      var demo = document.getElementById("single-menu-demos").value;
-      var task = document.getElementById("single-menu-tasks").value;
-      var inst = document.getElementById("single-menu-instances").value;
-
-      console.log("single", demo, task, inst)
-
-      var video = document.getElementById("single-task-result-video");
-      video.src = "https://homes.cs.washington.edu/~mshr/cliport/results_web/" + 
-                  task + 
-                  "-two_stream_full_clip_lingunet_lat_transporter-n" + 
-                  demo + 
-                  "-train/videos/" + 
-                  task +
-                  "-0000" + 
-                  inst + 
-                  ".mp4";
-      video.playbackRate = 2.0;
-      video.play();
-    }
-
-    function updateMultiVideo() {
-      var demo = document.getElementById("multi-menu-demos").value;
-      var task = document.getElementById("multi-menu-tasks").value;
-      var inst = document.getElementById("multi-menu-instances").value;
-
-      console.log("multi", demo, task, inst)
-
-      var video = document.getElementById("multi-task-result-video");
-      video.src = "https://homes.cs.washington.edu/~mshr/cliport/results_web/" + 
-                  task + 
-                  "-two_stream_full_clip_lingunet_lat_transporter-n" + 
-                  demo + 
-                  "-train/videos/multi-language-conditioned-" + 
-                  task +
-                  "-0000" + 
-                  inst + 
-                  ".mp4";
-      video.playbackRate = 2.0;
-      video.play();
-    }
-
-  </script>
-
-
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -402,7 +353,11 @@
 
 <section class="hero teaser">
   <div class="container">
-    <div class="wrappable_list">
+    <video controls muted>
+      <source src="media/vids/tycho_collage.mp4" type="video/mp4" />
+      Collage of robot performing a variety of real-world tasks.
+    </video>
+    <!-- <div class="wrappable_list">
       <span>
         <video autoplay loop muted>
           <source src="media/vids/lego.mp4" type="video/mp4"/>
@@ -433,9 +388,9 @@
           Video of a robot picking up a mound of whipped chream.
         </video>
       </span>
-    </div>
+    </div> -->
   </div>
-
+</section>
 
 <footer class="footer">
   <div class="container">
