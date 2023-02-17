@@ -270,11 +270,61 @@
 </section>
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Our System</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <video controls poster="media/imgs/tycho_narrative_thumbnail.png">
+          <source src="media/vids/tycho_narrative.mp4" type="video/mp4" />
+          Video description of our system.
+        </video>
+      </div>
+    </div>
+    <div class="content">
+      <p>
+        Our system, CherryBot, can handle challenging
+        dynamic fine manipulation tasks in the real world. CherryBot
+        operates in three phases: (1) pretraining in simulation on the
+        proxy task, (2) fine-tuning in the real world on the same proxy
+        task, and (3) deploying in the real world on test tasks. We then
+        evaluate the resulting learned policy in a variety of dynamic
+        scenarios. The image on the right details a deeper look at our 
+        hardware setup. Our robot is an assembled 6-DOF robotic arm 
+        equipped with chopsticks to perform fine manipulation, paired with 
+        either a motion capture cage or an RGB-D camera for perception.
+      </p>
+
+    </div>
+    <div class="columns is-centered is-vcentered">
+      <div class="column">
+        <img src="media/imgs/tycho_system.svg" alt="System figure" />
+      </div>
+      <div class="column is-three-fifths">
+        <img src="media/imgs/hardware.png" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Results</h2>
+    <div class="content">
+      <p>
+        We chose evaluation tasks to effectively test our agent's ability to
+        generalize from the proxy task to more practical settings.
+        Particularly, these tasks feature real-world complications that
+        are not present at training time, allowing us to test the agent's
+        ability to compensate for them at test time.
+      </p>
+    </div>
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
+        <video controls muted>
+          <source src="media/vids/tycho_collage.mp4" type="video/mp4" />
+          Collage of robot performing a variety of real-world tasks.
+        </video>
         <div class="content has-text-justified">
 <!--           <div class="container">
             <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
@@ -350,47 +400,6 @@
       </div>
     </div>
     -->
-</section>
-
-<section class="hero teaser">
-  <div class="container">
-    <video controls muted>
-      <source src="media/vids/tycho_collage.mp4" type="video/mp4" />
-      Collage of robot performing a variety of real-world tasks.
-    </video>
-    <!-- <div class="wrappable_list">
-      <span>
-        <video autoplay loop muted>
-          <source src="media/vids/lego.mp4" type="video/mp4"/>
-          Video of a robot grabbing a yellow block out of the air.
-        </video>
-      </span>
-      <span>
-        <video autoplay loop muted>
-          <source src="media/vids/retry.mp4" type="video/mp4"/>
-          Video of a robot showing adaptive retry behavior.
-        </video>
-      </span>
-      <span>
-        <video autoplay loop muted>
-          <source src="media/vids/chess.mp4" type="video/mp4"/>
-          Video of a robot picking up a chess piece.
-        </video>
-      </span>
-      <span>
-        <video autoplay loop muted>
-          <source src="media/vids/binder_clip.mp4" type="video/mp4"/>
-          Video of a robot picking up a binder clip.
-        </video>
-      </span>
-      <span>
-        <video autoplay loop muted>
-          <source src="media/vids/cream_sitback.mp4" type="video/mp4"/>
-          Video of a robot picking up a mound of whipped chream.
-        </video>
-      </span>
-    </div> -->
-  </div>
 </section>
 
 <footer class="footer">
