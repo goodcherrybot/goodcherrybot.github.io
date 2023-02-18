@@ -309,6 +309,36 @@
 <section class="section">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Results</h2>
+    <h4 class="title is-4">Side-by-Side Comparisons</h4>
+    <div class="is-centered">
+      <div class="content">
+        <p>
+          Below are examples of a human, a handwritten 100Hz controller, and our RL agent
+          attempting to grab a ball that is being bounced in the air by a motor.
+          Use the dropdown to view different trials!
+        </p>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Currently viewing:</label>
+        </div>
+        <div class="select">
+          <select id="SideBySide_Select">
+            <option value="1">Trial 1</option>
+            <option value="2">Trial 2</option>
+            <option value="3">Trial 3</option>
+            <option value="4">Trial 4</option>
+            <option value="5">Trial 5</option>
+            <option value="6">Trial 6</option>
+            <option value="7">Trial 7</option>
+            <option value="8">Trial 8</option>
+            <option value="9">Trial 9</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered is-1 is-variable" id="SideBySide"></div>
+    <h4 class="title is-4">Real-World Tasks</h4>
     <div class="content">
       <p>
         We chose evaluation tasks to effectively test our agent's ability to
