@@ -142,14 +142,14 @@
       </span>
       <span>
         <video autoplay loop muted>
-          <source src="media/vids/duck.mp4" type="video/mp4"/>
-          Video of a robot picking up a rubber duck.
+          <source src="media/vids/grapes.mp4" type="video/mp4"/>
+          Video of a robot picking up a grape from a pile of other grapes.
         </video>
       </span>
       <span>
         <video autoplay loop muted>
-          <source src="media/vids/grapes.mp4" type="video/mp4"/>
-          Video of a robot picking up a grape from a pile of other grapes.
+          <source src="media/vids/duck.mp4" type="video/mp4"/>
+          Video of a robot picking up a rubber duck.
         </video>
       </span>
     </div>
@@ -215,16 +215,20 @@
         <h2 class="title is-3">The Problem</h2>
         <div class="content has-text-justified">
           <p>
-            How can we automate cherry-picking 🍒 when the wind is blowing, the branch is shaking and the cherries are trembling? 
-            This task is an example of grasping <b>without rigid-surface support</b>: the problem is inherently dynamic as 
-            any contact with the object might cause it to move and further disturb its movement. The difficulty becomes more 
-            prominent for fine manipulation of small objects, as the perception error and sensor noise dominate and grasps can 
-            hardly be precise. 
+            Grasping small objects surrounded by unstable or
+            non-rigid material plays a crucial role in applications such as
+            surgery, harvesting, construction, disaster recovery, and assisted
+            feeding. This task is especially difficult when fine manipulation is
+            required in the presence of sensor noise and perception errors;
+            this inevitably triggers dynamic motion, which is challenging to
+            model precisely.
           </p>
           <div>
             <p>
             Similar challenges arise in everyday interactions: to remove shells 
-            from flowing egg whites,
+            from flowing egg whites, to grasp noodles from soup, and for surgeons to remove clots from deformable organs. 
+            Given the ubiquitous nature of these problems, developing robotic 
+            solutions to automate these has immense practical and economic value.
             </p>
             <div class="horizontal_list">
               <span class="list_image">
@@ -240,13 +244,22 @@
                 <p class="image_caption">Removing clots from deformable organs</p>
               </span>
             </div>
-            
-          to grasp noodles from soup,
-          
-            and for surgeons to remove clots from deformable organs. 
-            Given the ubiquitous nature of these problems, developing robotic 
-            solutions to automate these has immense practical and economic value.
           </div>
+          <p>
+            This work presents CherryBot, an RL system for fine manipulation 
+            that surpasses human reactivity for some dynamic
+            grasping tasks. By carefully designing the training paradigm and
+            algorithm, we study how to make a real-world robot learning
+            system sample efficient and general while reducing the human
+            effort required for supervision. Our system shows continual
+            improvement through only <b>30 minutes</b> of real-world interaction:
+            through reactive retries, it achieves an almost 100% success rate
+            on the demanding task of using chopsticks to grasp small objects
+            swinging in the air. We demonstrate the reactiveness, robustness
+            and generalizability of CherryBot to varying object shapes
+            and dynamics in zero-shot settings (e.g., external disturbances
+            like wind and human perturbations). 
+          </p>
         </div>
       </div>
       
@@ -303,12 +316,12 @@
         <img src="media/imgs/hardware.png" />
       </div>
     </div>
-    <h2 class="title is-4">Finetuning</h2>
+    <h2 class="title is-4">Finetuning Reproducibility</h2>
     <div class="content">
       <p>
         After pretraining in simulation, our system can efficiently finetune in the real world.
         Aside from time taken up by resets, our system finetunes in as little as 30 minutes of interaction!
-        Below is a timelapse of finetuning over 3 different seeds.
+        This finetuning procedure is robust and reproducible, as illustrated below in a timelapse of finetuning over 3 different seeds.
       </p>
     </div>
     <div class="columns is-centered">
@@ -325,7 +338,7 @@
 <section class="section">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Results</h2>
-    <h4 class="title is-4">Side-by-Side Comparisons</h4>
+    <h4 class="title is-4">How Reactive is the Agent?</h4>
     <div class="is-centered">
       <div class="content">
         <p>
@@ -334,28 +347,24 @@
           Use the dropdown to view different trials!
         </p>
       </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Currently viewing:</label>
-        </div>
-        <div class="select">
-          <select id="SideBySide_Select">
-            <option value="1">Trial 1</option>
-            <option value="2">Trial 2</option>
-            <option value="3">Trial 3</option>
-            <option value="4">Trial 4</option>
-            <option value="5">Trial 5</option>
-            <option value="6">Trial 6</option>
-            <option value="7">Trial 7</option>
-            <option value="8">Trial 8</option>
-            <option value="9">Trial 9</option>
-            <option value="10">Trial 10</option>
-          </select>
-        </div>
+      <div style="flex-direction: row;display: flex; justify-content: flex-end; align-items: baseline; margin: 0 auto; max-width: 60%; min-width: 30ch">
+        <label class="label" for="SideBySide_Select" style="margin-right: 5px">Currently viewing:</label>
+        <select id="SideBySide_Select">
+          <option value="1">Trial 1</option>
+          <option value="2">Trial 2</option>
+          <option value="3">Trial 3</option>
+          <option value="4">Trial 4</option>
+          <option value="5">Trial 5</option>
+          <option value="6">Trial 6</option>
+          <option value="7">Trial 7</option>
+          <option value="8">Trial 8</option>
+          <option value="9">Trial 9</option>
+          <option value="10">Trial 10</option>
+        </select>
       </div>
     </div>
     <div class="columns is-centered has-text-centered is-1 is-variable" id="SideBySide"></div>
-    <h4 class="title is-4">Real-World Tasks</h4>
+    <h4 class="title is-4">How Generalizable is the Agent?</h4>
     <div class="content">
       <p>
         We chose evaluation tasks to effectively test our agent's ability to
@@ -366,14 +375,14 @@
       </p>
     </div>
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <video controls muted>
+      <div class="column">
+        <video controls muted autoplay>
           <source src="media/vids/tycho_collage.mp4" type="video/mp4" />
           Collage of robot performing a variety of real-world tasks.
         </video>
       </div>
     </div>
-    <h4 class="title is-4">More Results</h4>
+    <h4 class="title is-4">How Robust is the Agent?</h4>
     <div class="content">
       <p>
         Through the use of a challenging proxy task, our agent can stay robust to unmodeled dynamics.
@@ -382,9 +391,48 @@
     </div>
     <div class="columns is-centered has-text-centered">
       <div class="column is-half">
-        <video controls muted>
+        <video controls muted preload="none" poster="media/imgs/human_disturb_thumbnail.jpg">
           <source src="media/vids/human_disturb.mp4" type="video/mp4" />
           Longer video of robot grabbing a ball being disturbed by a human.
+        </video>
+      </div>
+    </div>
+    <h4 class="title is-4">Food Demonstrations</h4>
+    <div class="columns is-centered is-multiline is-variable is-1">
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/chilis.mp4" type="video/mp4" />
+          Video of the robot picking up chilis from a bowl.
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/granola.mp4" type="video/mp4" />
+          Video of a robot picking up a cherry from a bowl of granola and milk
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/granola_retry.mp4" type="video/mp4" />
+          Video of a robot reactively retrying to a failure while picking up a cherry from a bowl of granola and milk.
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/kimchi.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of kimchi from a bowl of food.
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/tofu.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of tofu from a bowl of food.
+        </video>
+      </div>
+      <div class="column is-one-third">
+        <video controls muted>
+          <source src="media/vids/food/vegetables.mp4" type="video/mp4" />
+          Video of a robot picking up a cherry from a plate of vegetables.
         </video>
       </div>
     </div>
@@ -402,6 +450,57 @@
       </div>
     </div>
     -->
+</section>
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Design Ablations</h2>
+    <h4 class="title is-4">Finetuning</h4>
+    <div class="horizontal_list">
+      <span class="list_image">
+        <img src="media/svg/finetune.svg" alt="Plot of UTD ablation" style="max-width: 100%; max-height: 100%;" />
+        <p class="image_caption">Asynchronous update, high Update-To-Data (UTD) ratio and LayerNorm
+          regularization yields a moderate improvement in sample efficiency while pretraining in simulation, 
+          but greatly improves the speed of training during the real-world
+          finetuning stage.</p>
+      </span>
+      <span class="list_image">
+        <img src="media/svg/iql.svg" alt="Plot of IQL vs SAC" style="max-width: 100%; max-height: 100%;" />
+        <p class="image_caption">We found that standard online RL algorithms (such as soft
+          actor critic (SAC)) are far more effective for fine-tuning
+          than targeted offline RL methods.</p>
+      </span>
+    </div>
+    <div class="content is-centered has-text-centered" style="margin-top: 20px;">
+      <p style="background-color: peachpuff; max-width: 50%; border-radius: 5px; border: 2px solid gray; margin: 0 auto; padding: 5px">
+        Insight: Pre-training using standard off-policy RL methods
+        with imperfect prior data from simulation and heuristic
+        controllers can significantly help with sample efficiency for
+        real-world fine-tuning
+      </p>
+    </div>
+    <h4 class="title is-4">Heirarchical Controller</h4>
+    <div class="horizontal_list">
+      <span class="list_image">
+        <img src="media/svg/100hz.svg" alt="Plot of 20hz vs 100hz" style="max-width: 100%; max-height: 100%;" />
+        <p class="image_caption">The choice of control frequency can critically affect
+          the horizon of the task. A higher control frequency effectively
+          increases the time steps required to conduct a task and
+          negatively impacts sample efficiency.</p>
+      </span>
+      <span class="list_image">
+        <img src="media/svg/latency.svg" class="interpolation-image" alt="Plot of latency ablation" />
+        <p class="image_caption">Latency's impact becomes negligible when the control frequency
+          is lower, which decreases the relative ratio of the length of the
+          latency over the length of the control step.</p>
+      </span>
+    </div>
+    <div class="content is-centered has-text-centered" style="margin-top: 20px;">
+      <p style="background-color: peachpuff; max-width: 50%; border-radius: 5px; border: 2px solid gray; margin: 0 auto; padding: 5px">
+        Insight: Learning medium-frequency hybrid controllers can
+        effectively balance policy reactivity against the tractability
+        of learning
+      </p>
+    </div>
 </section>
 
 <footer class="footer">

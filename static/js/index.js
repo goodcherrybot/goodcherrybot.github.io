@@ -4,11 +4,12 @@ function updateSideBySide() {
   vidDiv.empty();
   const agentNames = {
     "human": "Human",
-    "rl": "RL Agent (ours)",
+    "rl": "<b>RL Agent (ours)</b>",
     "ct100": "100Hz Controller"
   };
   for (let agent of ["human", "ct100", "rl"]) {
-    vidDiv.append(`<div class="column is-one-third"><video autoplay loop muted><source src="media/vids/trials/${agent}_trial${trial}.mp4" ` + 
+    console.log("foo")
+    vidDiv.append(`<div class="column is-one-fifth"><video autoplay loop muted><source src="media/vids/trials/${agent}_trial${trial}.mp4" ` + 
                   `type="video/mp4"/>Video of trial ${trial}.</video>${agentNames[agent]}</div>`);
   }
 }
