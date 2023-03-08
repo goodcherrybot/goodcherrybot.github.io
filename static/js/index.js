@@ -8,7 +8,6 @@ function updateSideBySide() {
     "ct100": "100Hz Controller"
   };
   for (let agent of ["human", "ct100", "rl"]) {
-    console.log("foo")
     vidDiv.append(`<div class="column is-one-fifth"><video autoplay loop muted><source src="media/vids/trials/${agent}_trial${trial}.mp4" ` + 
                   `type="video/mp4"/>Video of trial ${trial}.</video>${agentNames[agent]}</div>`);
   }
