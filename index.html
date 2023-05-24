@@ -540,6 +540,93 @@
     </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Can we use different perception pipelines?</h2>
+    <div class="content">
+      <p>
+        Our system leverages an external state estimation module, so any perception pipeline can be used at test time.
+        Exeriments in our paper use a simple HSV filtration and contour detection algorithm, but this system easily generalizes
+        to SOTA perception modules.
+      </p>
+    </div>
+    <h4 class="title is-4">YOLOv5</h4>
+    <div class="content">
+      <p>
+        In these demos, we use an off-the-shelf <a href="https://pytorch.org/hub/ultralytics_yolov5/">YOLOv5</a> model to predict the bounding box of objects on the table,
+        the center of which is fed into the trained policy.
+      </p>
+    </div>
+    <div class="columns is-centered is-multiline is-variable is-1">
+      <div class="column is-one-fourth">
+        <image src="media/imgs/yolo/yolo1_zoomout.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-fourth">
+        <image src="media/imgs/yolo/yolo2_zoomout.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-fourth">
+        <image src="media/imgs/yolo/yolo3_zoomout.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-fourth">
+        <image src="media/imgs/yolo/yolo4_zoomout.jpg" alt="Bounding box of yolo detection" />
+      </div>
+    </div>
+    <div class="columns is-centered is-multiline is-variable is-1">
+      <div class="column is-half">
+        <video controls muted autoplay loop>
+          <source src="media/vids/yolo_demos/man_platform.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of tofu from a bowl of food.
+        </video>
+      </div>
+      <div class="column is-half">
+        <video controls muted autoplay loop>
+          <source src="media/vids/yolo_demos/man_zebra.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of tofu from a bowl of food.
+        </video>
+      </div>
+      <div class="column is-half">
+        <video controls muted autoplay loop>
+          <source src="media/vids/yolo_demos/man_block.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of tofu from a bowl of food.
+        </video>
+      </div>
+      <div class="column is-half">
+        <video controls muted autoplay loop>
+          <source src="media/vids/yolo_demos/man_dog.mp4" type="video/mp4" />
+          Video of a robot picking up a piece of tofu from a bowl of food.
+        </video>
+      </div>
+    </div>
+    <h4 class="title is-4">Segment Anything Model</h4>
+    <div class="content">
+      <p>
+        <a href="https://segment-anything.com/">SAM</a> is a generalizable segmentation system released by Meta AI.
+        We can use this system to predict the segmentation mask of the object and feed the mask's center into CherryBot.
+        Pictured below are the predicted masks and calculated object centers taken from SAM.
+      </p>
+    </div>
+    <div class="columns is-centered is-multiline is-variable is-1">
+      <div class="column is-one-third">
+        <image src="media/imgs/sam/kimchi_detected.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-thid">
+        <image src="media/imgs/sam/tofu_detected.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-third">
+        <image src="media/imgs/sam/vegetables_detected.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-third">
+        <image src="media/imgs/sam/kimchi_detected_all.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-thid">
+        <image src="media/imgs/sam/tofu_detected_all.jpg" alt="Bounding box of yolo detection" />
+      </div>
+      <div class="column is-one-third">
+        <image src="media/imgs/sam/vegetables_detected_all.jpg" alt="Bounding box of yolo detection" />
+      </div>
+    </div>
+</section>
+
 
 <!-- <section class="section">
   <div class="container is-max-desktop has-text-centered">
